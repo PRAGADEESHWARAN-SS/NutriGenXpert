@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriGenXpert - Upload Genetic Test Results</title>
+    <link rel="stylesheet" href="genetic.css">
+    <script src="genetic.js"></script>
+</head>
+<body>
+
+    <!-- Header (unchanged) -->
+    <header>
+        <div class="logo">
+            <h1>NutriGenXpert</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="main.html">Home</a></li>
+                <li><a href="personal_data.html">Personalized Calculator</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Form Section -->
+    <section class="form-section">
+        <div class="form-container">
+            <h3>Upload Your Genetic Test Results (manually)</h3>
+            <form class="genetic-form">
+                <!-- Left column (5 inputs) -->
+                <div class="column">
+                    <div class="form-row">
+                        <label for="MTHFR">1. MTHFR</label>
+                        <select id="MTHFR" name="MTHFR" required>
+                            <option value="" disabled selected></option>
+                        </select>
+                    </div>
+            
+                    <div class="form-row">
+                        <label for="APOE">2. APOE</label>
+                        <select id="APOE" name="APOE" required>
+                            <option value="" disabled selected></option>
+                        </select>
+                    </div>
+            
+                    <div class="form-row">
+                        <label for="FTO">3. FTO</label>
+                        <select id="FTO" name="FTO" required>
+                            <option value="" disabled selected></option>
+                        </select>
+                    </div>
+            
+                    <div class="form-row">
+                        <label for="COMT">4. COMT</label>
+                        <select id="COMT" name="COMT" required>
+                            <option value="" disabled selected></option>
+                        </select>
+                    </div>
+            
+                    <div class="form-row">
+                        <label for="GSTT1_GSTM1">5. GSTT1, GSTM1</label>
+                        <select id="GSTT1_GSTM1" name="GSTT1_GSTM1" required>
+                            <option value="" disabled selected></option>
+                        </select>
+                    </div>
+                </div>
+            
+                <!-- Right column (5 inputs) -->
+                <div class="column">
+                    <div class="form-row">
+                        <label for="CYP1A2">6. CYP1A2</label>
+                        <select id="CYP1A2" name="CYP1A2" required>
+                            <option value="" disabled selected></option>
+                        </select>
+                    </div>
+            
+                    <div class="form-row">
+                        <label for="LPL">7. LPL</label>
+                        <select id="LPL" name="LPL" required>
+                            <option value="" disabled selected></option>
+                        </select>
+                    </div>
+            
+                    <div class="form-row">
+                        <label for="VEGFA">8. VEGFA</label>
+                        <select id="VEGFA" name="VEGFA" required>
+                            <option value="" disabled selected></option>
+                        </select>
+                    </div>
+            
+                    <div class="form-row">
+                        <label for="TNF_alpha">9. TNF-alpha</label>
+                        <select id="TNF_alpha" name="TNF_alpha" required>
+                            <option value="" disabled selected></option>
+                        </select>
+                    </div>
+            
+                    <div class="form-row">
+                        <label for="PON1">10. PON1</label>
+                        <select id="PON1" name="PON1" required>
+                            <option value="" disabled selected></option>
+                        </select>
+                    </div>
+                </div>
+            </form>            
+
+            <button type="submit" class="submit-btn" id="submitBtn">Continue</button>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById("submitBtn").addEventListener("click", function(event) {
+            event.preventDefault(); // Prevent form from submitting in the traditional way
+        
+            // Collect data from the form
+            const geneticData = {
+                MTHFR: document.getElementById("MTHFR").value,
+                APOE: document.getElementById("APOE").value,
+                FTO: document.getElementById("FTO").value,
+                COMT: document.getElementById("COMT").value,
+                GSTT1_GSTM1: document.getElementById("GSTT1_GSTM1").value,
+                CYP1A2: document.getElementById("CYP1A2").value,
+                LPL: document.getElementById("LPL").value,
+                VEGFA: document.getElementById("VEGFA").value,
+                TNF_alpha: document.getElementById("TNF_alpha").value,
+                PON1: document.getElementById("PON1").value
+            };
+        
+            // Check if all fields are filled in
+            for (const key in geneticData) {
+                if (geneticData[key] === "" || geneticData[key] === null) {
+                    alert("Please fill in all fields before continuing.");
+                    return; // Stop the function if any field is empty
+                }
+            }
+        
+            // Save the genetic data to localStorage
+            localStorage.setItem('geneticData', JSON.stringify(geneticData));
+        
+            // Optionally, you can redirect to the next page (e.g., result page)
+            window.location.href = 'result-page.html'; // Example: Redirect to result page
+        });
+        </script>
+        
+
+    <!-- Footer (unchanged) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-column">
+                <img src="logo.jpeg" alt="NutriGenXpert Logo">
+                <p>Science-Driven Nutrition For a Better You</p>
+            </div>
+            <div class="footer-column">
+                <h4>Learn</h4>
+                <ul>
+                    <li><a href="learn_genetic.html">Genetic Test</a></li>
+                    <li><a href="learn_microbiome.html">Microbiome Test</a></li>
+                    <li><a href="learn_biochemical.html">Biochemical Test</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Get in Touch</h4>
+                <ul>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>NutriGenXpert</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>©NutriGenXpert 2024 | All Rights Reserved | <a href="#">Terms and Conditions</a> | <a href="#">Privacy Policy</a></p>
+        </div>
+    </footer>
+    <script>
+        // JavaScript to handle the button click and redirect
+        document.getElementById("submitBtn").onclick = function() {
+            // Perform validation or any actions here if needed before redirect
+            window.location.href = "microbiome.html";  // Replace with the page you want to go to
+        };
+    </script>
+
+</body>
+</html>

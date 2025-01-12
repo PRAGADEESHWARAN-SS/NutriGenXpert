@@ -1,0 +1,168 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: white;
+    border-bottom: 2px solid #e25b45;
+}
+
+header .logo h1 {
+    font-size: 1.8rem;
+    color: #e25b45;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+}
+
+header nav ul li {
+    margin: 0 1rem;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1rem;
+}
+
+.auth-buttons {
+    display: flex;
+}
+
+.auth-buttons button {
+    padding: 0.5rem 1rem;
+    margin-left: 1rem;
+    font-size: 1rem;
+    border: 2px solid #e25b45;
+    border-radius: 5px;
+    background-color: white;
+    color: #e25b45;
+    cursor: pointer;
+}
+
+.auth-buttons button:hover {
+    background-color: #e25b45;
+    color: white;
+}
+
+/* Contact Form Section */
+.contact-form {
+    background-color: #f4f4f4;
+    padding: 2rem;
+    margin: 2rem auto;
+    width: 50%;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form h2 {
+    color: red;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.contact-form p {
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    color: #333;
+}
+
+.contact-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    text-align: left;
+}
+
+.contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact-form textarea {
+    height: 100px;
+}
+
+.contact-form button {
+    padding: 1rem 2rem;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: darkred;
+}
+
+/* Footer Styles */
+/* Footer Styles */
+.footer {
+    background-color: #f0f0f0;
+    padding: 2rem 0;
+}
+
+.footer .container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-column {
+    width: 25%;
+}
+
+.footer-column h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li a {
+    text-decoration: none;
+    color: #333;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.footer img {
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.footer-bottom {
+    background-color: #f0f0f0;
+    padding: 1rem;
+    text-align: center;
+}
+
+.footer-bottom a {
+    text-decoration: none;
+    color: blue;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}

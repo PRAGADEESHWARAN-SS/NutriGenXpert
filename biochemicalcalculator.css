@@ -1,0 +1,213 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Header styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f4f4f4;
+}
+
+header .logo h1 {
+    font-size: 1.8rem;
+    color: #e25b45;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+}
+
+header nav ul li {
+    margin: 0 1rem;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1rem;
+}
+
+.auth-buttons {
+    display: flex;
+}
+
+.auth-buttons button {
+    padding: 0.5rem 1rem;
+    margin-left: 1rem;
+    font-size: 1rem;
+    border: 2px solid #e25b45;
+    border-radius: 5px;
+}
+/* Test Results Form Section */
+section.test-results {
+    padding: 2rem;
+    background-color: #f9f9f9; /* Light background for contrast */
+    text-align: center;
+    max-width: 900px; /* Center the section */
+    margin: 2rem auto;
+    border: 1px solid #ccc; /* Add border for definition */
+    border-radius: 10px; /* Rounded corners for the form section */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Form Container */
+.biochemical-form-container {
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #fff; /* White background for clarity */
+}
+
+/* Form Header */
+.biochemical-form-container h3 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+/* Biochemical Form Layout */
+.biochemical-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem; /* Add consistent spacing between items */
+    justify-content: space-between;
+}
+
+/* Column Layout */
+.column {
+    width: 45%; /* Two-column layout */
+}
+
+/* Form Row */
+.form-row {
+    display: flex;
+    align-items: center; /* Vertically align label and input */
+    margin-bottom: 1.5rem; /* Add consistent spacing between rows */
+}
+
+/* Form Label */
+.form-row label {
+    min-width: 150px; /* Fixed width for label alignment */
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: left;
+    color: #555;
+}
+
+/* Form Input and Select */
+.form-row select, 
+.form-row input[type="text"], 
+.form-row input[type="number"] {
+    flex: 1; /* Input takes the remaining space */
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #fdfdfd; /* Light background */
+    color: #333;
+    transition: border-color 0.3s ease;
+    width: 100%;
+}
+
+.form-row select:focus, 
+.form-row input[type="text"]:focus, 
+.form-row input[type="number"]:focus {
+    border-color: #007BFF; /* Highlight border on focus */
+    outline: none;
+    box-shadow: 0 0 4px rgba(0, 123, 255, 0.3); /* Add focus glow */
+}
+
+/* Submit Button */
+button.submit-btn {
+    background-color: #333; /* Dark button color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 1rem;
+}
+
+button.submit-btn:hover {
+    background-color: #555; /* Slightly lighter on hover */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .column {
+        width: 100%; /* Full-width on smaller screens */
+    }
+
+    .biochemical-form {
+        gap: 1rem; /* Adjust spacing for smaller screens */
+    }
+}
+
+
+
+/* Footer Styling */
+/* Footer Styles */
+.footer {
+    background-color: #f0f0f0;
+    padding: 2rem 0;
+}
+
+.footer .container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-column {
+    width: 25%;
+}
+
+.footer-column h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li a {
+    text-decoration: none;
+    color: #333;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.footer img {
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.footer-bottom {
+    background-color: #f0f0f0;
+    padding: 1rem;
+    text-align: center;
+}
+
+.footer-bottom a {
+    text-decoration: none;
+    color: blue;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}

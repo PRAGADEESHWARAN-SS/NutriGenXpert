@@ -1,0 +1,166 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+    overflow-x: hidden; /* To prevent horizontal scrolling */
+}
+
+/* Header styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f4f4f4;
+}
+
+header .logo h1 {
+    font-size: 1.8rem;
+    color: #e25b45;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+}
+
+header nav ul li {
+    margin: 0 1rem;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1rem;
+}
+
+/* Form Section */
+.form-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    padding: 2rem;
+    background-color: #fff;
+}
+
+.form-container {
+    width: 100%;
+    max-width: 600px; /* Expanded form width */
+    padding: 2rem;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.form-container h2 {
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    color: #333;
+}
+
+.data-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.data-form label {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+    color: #333;
+    text-align: left;
+}
+
+/* Styling for inputs and select */
+.data-form input,
+.data-form select {
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+.data-form input:focus,
+.data-form select:focus {
+    border-color: #e25b45;
+}
+
+.submit-btn {
+    padding: 0.75rem;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #555;
+}
+
+/* Footer styles */
+/* Footer Styles */
+.footer {
+    background-color: #f0f0f0;
+    padding: 2rem 0;
+}
+
+.footer .container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-column {
+    width: 25%;
+}
+
+.footer-column h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li a {
+    text-decoration: none;
+    color: #333;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.footer img {
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.footer-bottom {
+    background-color: #f0f0f0;
+    padding: 1rem;
+    text-align: center;
+}
+
+.footer-bottom a {
+    text-decoration: none;
+    color: blue;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}

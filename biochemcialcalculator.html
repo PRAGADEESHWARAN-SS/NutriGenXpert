@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Biochemical Test Results</title>
+    <link rel="stylesheet" href="biochemicalcalculator.css">
+    <script src="biochemicalcalculator.js"></script>
+     
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <h1>NutriGenXpert</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="main_new.html">Home</a></li>
+                <li><a href="personal_data.html">Personalized Calculator</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Biochemical Test Results Form Section -->
+    <section class="test-results">
+        <h2>Upload Your Biochemical Test Results (manually)</h2>
+        <form class="biochemical-form">
+            <!-- Column 1 -->
+            <div class="column">
+                <div class="form-row">
+                    <label for="fastingBloodGlucose">1. Fasting Blood Glucose</label>
+                    <select id="fastingBloodGlucose">
+                        <option></option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label for="HbA1c">2. HbA1c</label>
+                    <select id="HbA1c">
+                        <option></option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label for="totalCholesterol">3. Total Cholesterol</label>
+                    <select id="totalCholesterol">
+                        <option></option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label for="ldlCholesterol">4. LDL Cholesterol</label>
+                    <select id="ldlCholesterol">
+                        <option></option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label for="hdlCholesterol">5. HDL Cholesterol</label>
+                    <select id="hdlCholesterol">
+                        <option></option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label for="triglycerides">6. Triglycerides</label>
+                    <select id="triglycerides">
+                        <option></option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label for="serumCreatinine">7. Serum Creatinine</label>
+                    <select id="serumCreatinine">
+                        <option></option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label for="eGFR">8. eGFR</label>
+                    <select id="eGFR">
+                        <option></option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label for="ALT">9. ALT</label>
+                    <select id="ALT">
+                        <option></option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label for="AST">10. AST</label>
+                    <select id="AST">
+                        <option></option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label for="TSH">11. TSH</label>
+                    <select id="TSH">
+                        <option></option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label for="freeT4">12. Free T4</label>
+                    <select id="freeT4">
+                        <option></option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Column 2 -->
+
+            <div class="column">
+                <div class="form-row">
+                    <label for="BNP">13. BNP</label>
+                    <select id="BNP">
+                        <option></option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label for="CRP">14. CRP</label>
+                    <select id="CRP">
+                        <option></option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label for="vitaminD">15. Vitamin D</label>
+                    <select id="vitaminD">
+                        <option></option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label for="serumFerritin">16. Serum Ferritin</label>
+                    <select id="serumFerritin">
+                        <option></option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label for="omega3Index">17. Omega-3 Index</label>
+                    <select id="omega3Index">
+                        <option></option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label for="IGF1">18. IGF-1</label>
+                    <select id="IGF1">
+                        <option></option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label for="vitaminB12">19. Vitamin B12</label>
+                    <select id="vitaminB12">
+                        <option></option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label for="vitaminB9">20. Vitamin B9</label>
+                    <select id="vitaminB9">
+                        <option></option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label for="calcium">21. Calcium</label>
+                    <select id="calcium">
+                        <option></option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label for="zinc">22. Zinc</label>
+                    <select id="zinc">
+                        <option></option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label for="magnesium">23. Magnesium</label>
+                    <select id="magnesium">
+                        <option></option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label for="troponins">24. Troponins</label>
+                    <select id="troponins">
+                        <option></option>
+                    </select>
+                </div>
+            </div>
+        </form>
+
+        <script src="biochemical.js"></script>
+        <div class="continue-button">
+            <button type="submit" class="submit-btn">Continue</button>
+        </div>
+    </section>
+    <script>
+        document.querySelector(".submit-btn").addEventListener("click", function (event) {
+            event.preventDefault(); // Prevent the default form submission
+    
+            // Collect biochemical data
+            const biochemicalData = {
+                fastingBloodGlucose: document.getElementById("fastingBloodGlucose").value,
+                HbA1c: document.getElementById("HbA1c").value,
+                totalCholesterol: document.getElementById("totalCholesterol").value,
+                ldlCholesterol: document.getElementById("ldlCholesterol").value,
+                hdlCholesterol: document.getElementById("hdlCholesterol").value,
+                triglycerides: document.getElementById("triglycerides").value,
+                serumCreatinine: document.getElementById("serumCreatinine").value,
+                eGFR: document.getElementById("eGFR").value,
+                ALT: document.getElementById("ALT").value,
+                AST: document.getElementById("AST").value,
+                TSH: document.getElementById("TSH").value,
+                freeT4: document.getElementById("freeT4").value,
+                BNP: document.getElementById("BNP").value,
+                CRP: document.getElementById("CRP").value,
+                vitaminD: document.getElementById("vitaminD").value,
+                serumFerritin: document.getElementById("serumFerritin").value,
+                omega3Index: document.getElementById("omega3Index").value,
+                IGF1: document.getElementById("IGF1").value,
+                vitaminB12: document.getElementById("vitaminB12").value,
+                vitaminB9: document.getElementById("vitaminB9").value,
+                calcium: document.getElementById("calcium").value,
+                zinc: document.getElementById("zinc").value,
+                magnesium: document.getElementById("magnesium").value,
+                troponins: document.getElementById("troponins").value,
+            };
+    
+        // Validate biochemical data
+        function validateBiochemicalData() {
+           for (const key in testData) {
+               const selectElement = document.getElementById(key);
+        
+            // Check if the select element exists and if the value is empty or null
+            if (!selectElement || selectElement.value === "" || selectElement.value === null) {
+                 alert(`Please fill in all biochemical data fields for ${key} before continuing.`);
+                 return false;  // Stop further processing if validation fails
+            }
+        }
+        return true;  // Return true if all fields are filled
+        }
+    
+            // Save the biochemical data to localStorage
+            localStorage.setItem("biochemicalData", JSON.stringify(biochemicalData));
+    
+            // Redirect to the result page
+            window.location.href = 'result.html'; // Redirect to the result page
+        });
+    </script>
+    
+    
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-column">
+                <img src="logo.jpeg" alt="NutriGenXpert Logo">
+                <p>Science-Driven Nutrition For a Better You</p>
+            </div>
+            <div class="footer-column">
+                <h4>Learn</h4>
+                <ul>
+                    <li><a href="learn_genetic.html">Genetic Test</a></li>
+                    <li><a href="learn_microbiome.html">Microbiome Test</a></li>
+                    <li><a href="learn_biochemical.html">Biochemical Test</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Get in Touch</h4>
+                <ul>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>NutriGenXpert</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>©NutriGenXpert 2024 | All Rights Reserved | <a href="#">Terms and Conditions</a> | <a href="#">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript to handle the button click and redirect
+        document.getElementById("submitBtn").onclick = function() {
+            // Perform validation or any actions here if needed before redirect
+            window.location.href = "result.html";  // Replace with the page you want to go to
+        };
+    </script>
+
+</body>
+</html>

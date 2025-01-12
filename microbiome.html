@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Microbiome Test Results</title>
+    <link rel="stylesheet" href="microbiome.css">
+    <script src="microbiome.js"></script>
+</head>
+<body>
+
+    <!-- Header and Footer are unchanged -->
+    <header>
+        <div class="logo">
+            <h1>NutriGenXpert</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="main_new.html">Home</a></li>
+                <li><a href="personal_data.html">Personalized Calculator</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+<!-- Form Section -->
+<section class="form-section">
+    <div class="form-container">
+        <h3>Upload Your Microbiome Test Results (manually)</h3>
+        <form class="microbiome-form">
+            <!-- Left column (microbe groups) -->
+            <div class="column">
+                <div class="form-row">
+                    <label for="BacteroidiaGroup">1. Bacteroidia</label>
+                    <select id="BacteroidiaGroup" name="BacteroidiaGroup" required>
+                        <option value="" disabled selected></option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <label for="ProvotellaGroup">1.1. Prevotella</label>
+                    <select id="ProvotellaGroup" name="ProvotellaGroup" required>
+                        <option value="" disabled selected></option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <label for="ActinobacteriaGroup">2. Actinobacteria</label>
+                    <select id="ActinobacteriaGroup" name="ActinobacteriaGroup" required>
+                        <option value="" disabled selected></option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <label for="BifidobacteriumGroup">2.1. Bifidobacterium</label>
+                    <select id="BifidobacteriumGroup" name="BifidobacteriumGroup" required>
+                        <option value="" disabled selected></option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <label for="BacilliGroup">3. Bacilli</label>
+                    <select id="BacilliGroup" name="BacilliGroup" required>
+                        <option value="" disabled selected></option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <label for="LactobacillusGroup">3.1. Lactobacillus</label>
+                    <select id="LactobacillusGroup" name="LactobacillusGroup" required>
+                        <option value="" disabled selected></option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <label for="VerrucomicrobiaeGroup">4. Verrucomicrobiae</label>
+                    <select id="VerrucomicrobiaeGroup" name="VerrucomicrobiaeGroup" required>
+                        <option value="" disabled selected></option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Right column (additional microbes) -->
+            <div class="column">
+                <div class="form-row">
+                    <label for="AkkermansiaMuciniphiliaGroup">4.1. Akkermansia Muciniphilia</label>
+                    <select id="AkkermansiaMuciniphiliaGroup" name="AkkermansiaMuciniphiliaGroup" required>
+                        <option value="" disabled selected></option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <label for="GammaproteobacteriumGroup">5. Gammaproteobacterium</label>
+                    <select id="GammaproteobacteriumGroup" name="GammaproteobacteriumGroup" required>
+                        <option value="" disabled selected></option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <label for="EcoliGroup">5.1. Ecoli</label>
+                    <select id="EcoliGroup" name="EcoliGroup" required>
+                        <option value="" disabled selected></option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <label for="ErysipelotrichiaGroup">6. Erysipelotrichia</label>
+                    <select id="ErysipelotrichiaGroup" name="ErysipelotrichiaGroup" required>
+                        <option value="" disabled selected></option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <label for="ClostridiaGroup">7. Clostridia</label>
+                    <select id="ClostridiaGroup" name="ClostridiaGroup" required>
+                        <option value="" disabled selected></option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <label for="FaecalibacteriumPrausnitziiGroup">7.1. Faecalibacterium Prausnitzii</label>
+                    <select id="FaecalibacteriumPrausnitziiGroup" name="FaecalibacteriumPrausnitziiGroup" required>
+                        <option value="" disabled selected></option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <label for="ClostridiumDifficileGroup">7.2. Clostridium Difficile</label>
+                    <select id="ClostridiumDifficileGroup" name="ClostridiumDifficileGroup" required>
+                        <option value="" disabled selected></option>
+                    </select>
+                </div>
+            </div>
+        </form>
+
+        <h3>Additional Microbes For More Benefits</h3>
+        <form class="microbiome-form">
+            <!-- Additional microbes -->
+            <div class="column">
+                <div class="form-row">
+                    <label for="CandidaGroup">8. Candida</label>
+                    <select id="CandidaGroup" name="CandidaGroup" required>
+                        <option value="" disabled selected></option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <label for="SaccharomycesGroup">9. Saccharomyces</label>
+                    <select id="SaccharomycesGroup" name="SaccharomycesGroup" required>
+                        <option value="" disabled selected></option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="form-row">
+                    <label for="BacteriophagesGroup">10. Bacteriophages</label>
+                    <select id="BacteriophagesGroup" name="BacteriophagesGroup" required>
+                        <option value="" disabled selected></option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <label for="MethanobrevibacterSmithiiGroup">11. Methanobrevibacter Smithii</label>
+                    <select id="MethanobrevibacterSmithiiGroup" name="MethanobrevibacterSmithiiGroup" required>
+                        <option value="" disabled selected></option>
+                    </select>
+                </div>
+            </div>
+        </form>            
+
+        <!-- Continue Button -->
+        <button type="submit" class="submit-btn" id="submitBtn">Continue</button>
+    </div>
+</section>
+
+<script>
+    document.getElementById("submitBtn").addEventListener("click", function(event) {
+        event.preventDefault(); // Prevent form submission
+
+        // Collect microbiome data
+        const microbiomeData = {
+            Bacteroidia: document.getElementById("BacteroidiaGroup").value,
+            Prevotella: document.getElementById("ProvotellaGroup").value,
+            Actinobacteria: document.getElementById("ActinobacteriaGroup").value,
+            Bifidobacterium: document.getElementById("BifidobacteriumGroup").value,
+            Bacilli: document.getElementById("BacilliGroup").value,
+            Lactobacillus: document.getElementById("LactobacillusGroup").value,
+            Verrucomicrobiae: document.getElementById("VerrucomicrobiaeGroup").value,
+            Akkermansia_Muciniphilia: document.getElementById("AkkermansiaMuciniphiliaGroup").value,
+            Gammaproteobacterium: document.getElementById("GammaproteobacteriumGroup").value,
+            Ecoli: document.getElementById("EcoliGroup").value,
+            Erysipelotrichia: document.getElementById("ErysipelotrichiaGroup").value,
+            Clostridia: document.getElementById("ClostridiaGroup").value,
+            Faecalibacterium_Prausnitzii: document.getElementById("FaecalibacteriumPrausnitziiGroup").value,
+            Clostridium_Difficile: document.getElementById("ClostridiumDifficileGroup").value,
+            Candida: document.getElementById("CandidaGroup").value,
+            Saccharomyces: document.getElementById("SaccharomycesGroup").value,
+            Bacteriophages: document.getElementById("BacteriophagesGroup").value,
+            Methanobrevibacter_Smithii: document.getElementById("MethanobrevibacterSmithiiGroup").value
+        };
+
+    
+        // Validate microbiome data
+        for (const key in microbiomeData) {
+            if (microbiomeData[key] === "" || microbiomeData[key] === null) {
+                alert("Please fill in all microbiome data fields before continuing.");
+                return;
+            }
+        }
+
+        // Save data to localStorage
+        localStorage.setItem('microbiomeData', JSON.stringify(microbiomeData));
+
+        // Redirect to result page
+        window.location.href = 'result-page.html'; // Example: Redirect to result page
+    });
+</script>
+
+
+    <!-- Footer is unchanged -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-column">
+                <img src="logo.jpeg" alt="NutriGenXpert Logo">
+                <p>Science-Driven Nutrition For a Better You</p>
+            </div>
+            <div class="footer-column">
+                <h4>Learn</h4>
+                <ul>
+                    <li><a href="learn_genetic.html">Genetic Test</a></li>
+                    <li><a href="learn_microbiome.html">Microbiome Test</a></li>
+                    <li><a href="learn_biochemical.html">Biochemical Test</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Get in Touch</h4>
+                <ul>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>NutriGenXpert</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>©NutriGenXpert 2024 | All Rights Reserved | <a href="#">Terms and Conditions</a> | <a href="#">Privacy Policy</a></p>
+        </div>
+    </footer>
+    <script>
+        // JavaScript to handle the button click and redirect
+        document.getElementById("submitBtn").onclick = function() {
+            // Perform validation or any actions here if needed before redirect
+            window.location.href = "biochemcialcalculator.html";  // Replace with the page you want to go to
+        };
+    </script>
+</body>
+</html>

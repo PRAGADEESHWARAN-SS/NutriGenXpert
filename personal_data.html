@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriGenXpert - Upload Data</title>
+    <link rel="stylesheet" href="personal_data.css">
+    <script defer src="personal_data.js"></script>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <h1>NutriGenXpert</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="main_new.html">Home</a></li>
+                <li><a href="personal_data.html">Personalized Calculator</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Form Section -->
+    <section class="form-section">
+        <div class="form-container">
+            <h3>Upload Your Personal Data (100% secure)</h3>
+            <form class="data-form" id="dataForm" action="genetic.html" method="get">
+                <label for="Name">Name*</label>
+                <input type="text" id="Name" name="Name" required>
+                
+                <label for="Age">Age*</label>
+                <input type="number" id="Age" name="Age" required>
+                
+                <label for="Gender">Gender*</label>
+                <select id="Gender" name="Gender" required>
+                    <option value="" disabled selected></option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                    <option value="prefer_not_to_tell">Prefer not to tell</option>
+                </select>
+                
+                <label for="weight">Weight*</label>
+                <input type="text" id="weight" name="weight" required>
+                
+                <label for="height">Height*</label>
+                <input type="text" id="height" name="height" required>
+                
+                <button type="submit" class="submit-btn">Continue</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-column">
+                <img src="logo.jpeg" alt="NutriGenXpert Logo">
+                <p>Science-Driven Nutrition For a Better You</p>
+            </div>
+            <div class="footer-column">
+                <h4>Learn</h4>
+                <ul>
+                    <li><a href="learn_genetic.html">Genetic Test</a></li>
+                    <li><a href="learn_microbiome.html">Microbiome Test</a></li>
+                    <li><a href="learn_biochemical.html">Biochemical Test</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Get in Touch</h4>
+                <ul>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>NutriGenXpert</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>©NutriGenXpert 2024 | All Rights Reserved | <a href="#">Terms and Conditions</a> | <a href="#">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.querySelector(".submit-btn").addEventListener("click", function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Collect data
+            const personalData = {
+                name: document.getElementById("Name").value,
+                age: document.getElementById("Age").value,
+                gender: document.getElementById("Gender").value,
+                weight: document.getElementById("weight").value,
+                height: document.getElementById("height").value,
+            };
+
+            // Check if all fields are filled
+            for (const key in personalData) {
+                if (!personalData[key]) {
+                    alert("Please fill in all fields before continuing.");
+                    return; // Stop the function if any field is empty
+                }
+            }
+
+            // Save to localStorage
+            localStorage.setItem("personalData", JSON.stringify(personalData));
+
+            // Redirect to the next page
+            window.location.href = "genetic.html"; // Ensure genetic.html exists in the correct path
+        });
+    </script>
+
+</body>
+</html>
+
+

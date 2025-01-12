@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>recommendation-section</title>
+    <link rel="stylesheet" href="result.css">
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <h1>NutriGenXpert</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="main_new.html">Home</a></li>
+                <li><a href="personal_data.html">Personalized Calculator</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Test Results Form Section -->
+     
+    <title>Personalized Recommendations</title>
+</head>
+<body>
+    <h1>Personalized Health Dashboard</h1>
+
+    <section>
+        <h2>Personal Data</h2>
+        <ul id="personal-data">
+            <li>Loading...</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Genetic Data</h2>
+        <ul id="genetic-data">
+            <li>Loading...</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Microbiome Data</h2>
+        <ul id="microbiome-data">
+            <li>Loading...</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Biochemical Data</h2>
+        <ul id="biochemical-data">
+            <li>Loading...</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Diet Recommendations</h2>
+        <ul id="diet-recommendations">
+            <li>Loading...</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Lifestyle Recommendations</h2>
+        <ul id="lifestyle-recommendations">
+            <li>Loading...</li>
+        </ul>
+    </section>
+  
+    <!-- download Section -->
+    <section>
+        <button id="download-all-btn" class="download-btn">Download All Data</button>
+    </section>
+    
+    
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-column">
+                <img src="logo.jpeg" alt="NutriGenXpert Logo">
+                <p>Science-Driven Nutrition For a Better You</p>
+            </div>
+            <div class="footer-column">
+                <h4>Learn</h4>
+                <ul>
+                    <li><a href="learn_genetic.html">Genetic Test</a></li>
+                    <li><a href="learn_microbiome.html">Microbiome Test</a></li>
+                    <li><a href="learn_biochemical.html">Biochemical Test</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Get in Touch</h4>
+                <ul>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>NutriGenXpert</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© NutriGenXpert 2024 | All Rights Reserved | <a href="#">Terms and Conditions</a> | <a href="#">Privacy Policy</a></p>
+        </div>
+    </footer>
+    <script src="result.js"></script>
+
+    <script>
+      function loadResults() {
+    // Retrieve data from localStorage
+    const personalData = JSON.parse(localStorage.getItem("personalData")) || {};
+    const geneticData = JSON.parse(localStorage.getItem("geneticData")) || {};
+    const microbiomeData = JSON.parse(localStorage.getItem("microbiomeData")) || {};
+    const biochemicalData = JSON.parse(localStorage.getItem("biochemicalData")) || {};
+
+    // Function to map risk levels and provide recommendations
+    function getRecommendations(geneticData, microbiomeData, biochemicalData) {
+        const recommendations = {
+            diet: [],
+            lifestyle: [],
+        };
+
+        // Add genetic, microbiome, and biochemical recommendations to the list
+        addGeneticRecommendations(geneticData, recommendations);
+        addMicrobiomeRecommendations(microbiomeData, recommendations);
+        addBiochemicalRecommendations(biochemicalData, recommendations);
+
+        return recommendations;
+    }
+
+    // Function to add genetic recommendations
+    function addGeneticRecommendations(geneticData, recommendations) {
+        // MTHFR
+    if (geneticData.MTHFR === "No Risk (CC)") {
+        recommendations.diet.push("Balanced diet with folate-rich foods like leafy greens and fortified cereals.");
+        recommendations.lifestyle.push("Regular exercise and maintain hydration.");
+    } else if (geneticData.MTHFR === "Moderate Risk (CT)") {
+        recommendations.diet.push("Folate-rich foods such as spinach, lentils, and avocados.");
+        recommendations.lifestyle.push("Manage stress with activities like yoga or meditation.");
+    } else if (geneticData.MTHFR === "High Risk (TT)") {
+        recommendations.diet.push("Methylated folate (supplements if necessary) and folate-rich foods.");
+        recommendations.lifestyle.push("Focus on cardiovascular health through exercise and stress reduction.");
+    }
+
+    // APOE
+    if (geneticData.APOE === "No Risk (ε2/ε2)") {
+        recommendations.diet.push("Heart-healthy diet rich in fruits, vegetables, whole grains, and healthy fats.");
+        recommendations.lifestyle.push("Engage in regular exercise and cognitive activities.");
+    } else if (geneticData.APOE === "Moderate Risk (ε3/ε3)") {
+        recommendations.diet.push("Include omega-3 fatty acids, antioxidants, and limit saturated fats.");
+        recommendations.lifestyle.push("Exercise regularly and monitor cholesterol levels.");
+    } else if (geneticData.APOE === "High Risk (ε4/ε4 or ε3/ε4)") {
+        recommendations.diet.push("Strict heart-healthy diet, high in omega-3s and antioxidants; avoid trans fats.");
+        recommendations.lifestyle.push("Regular cardiovascular exercise and cognitive training; consult for medication if needed.");
+    }
+
+    // FTO
+    if (geneticData.FTO === "No Risk (AA)") {
+        recommendations.diet.push("Standard balanced diet with portion control.");
+        recommendations.lifestyle.push("Engage in moderate physical activity regularly.");
+    } else if (geneticData.FTO === "Moderate Risk (AT)") {
+        recommendations.diet.push("High-fiber diet with fruits, vegetables, and whole grains.");
+        recommendations.lifestyle.push("Include strength training and mindful eating habits.");
+    } else if (geneticData.FTO === "High Risk (TT)") {
+        recommendations.diet.push("Calorie-controlled diet, high in fiber and healthy fats, low in refined sugars.");
+        recommendations.lifestyle.push("Regular vigorous exercise and weight monitoring.");
+    }
+
+    // COMT
+    if (geneticData.COMT === "No Risk (Val/Val)") {
+        recommendations.diet.push("Balanced diet with foods rich in B vitamins.");
+        recommendations.lifestyle.push("Regular mental activities and stress management techniques.");
+    } else if (geneticData.COMT === "Moderate Risk (Val/Met)") {
+        recommendations.diet.push("Focus on brain-healthy foods like fish, nuts, and green leafy vegetables.");
+        recommendations.lifestyle.push("Incorporate relaxation techniques like yoga.");
+    } else if (geneticData.COMT === "High Risk (Met/Met)") {
+        recommendations.diet.push("Include antioxidant-rich foods and omega-3 fatty acids.");
+        recommendations.lifestyle.push("Intensive stress management and physical activity.");
+    }
+
+    // GSTT1_GSTM1
+    if (geneticData.GSTT1_GSTM1 === "No Risk (Both Present)") {
+        recommendations.diet.push("Antioxidant-rich diet with berries, leafy greens, and whole grains.");
+        recommendations.lifestyle.push("Engage in physical activities like brisk walking.");
+    } else if (geneticData.GSTT1_GSTM1 === "Moderate Risk (One Absent)") {
+        recommendations.diet.push("Focus on sulfur-rich foods like garlic and onions.");
+        recommendations.lifestyle.push("Avoid exposure to environmental toxins.");
+    } else if (geneticData.GSTT1_GSTM1 === "High Risk (Both Absent)") {
+        recommendations.diet.push("Strict sulfur-rich diet; include cruciferous vegetables.");
+        recommendations.lifestyle.push("Adopt a detox routine under professional guidance.");
+    }
+
+    // CYP1A2
+    if (geneticData.CYP1A2 === "No Risk (AA)") {
+        recommendations.diet.push("Balanced diet and moderate caffeine intake.");
+        recommendations.lifestyle.push("Exercise regularly and consume caffeine as tolerated.");
+    } else if (geneticData.CYP1A2 === "Moderate Risk (AC)") {
+        recommendations.diet.push("Limit caffeine and focus on metabolism-supporting foods.");
+        recommendations.lifestyle.push("Engage in regular exercise and monitor caffeine sensitivity.");
+    } else if (geneticData.CYP1A2 === "High Risk (CC)") {
+        recommendations.diet.push("Avoid caffeine and include liver-supporting foods like leafy greens.");
+        recommendations.lifestyle.push("Ensure regular exercise and maintain adequate sleep.");
+    }
+
+    // LPL
+    if (geneticData.LPL === "No Risk (AA)") {
+        recommendations.diet.push("Include healthy fats like olive oil and avocados.");
+        recommendations.lifestyle.push("Regular cardio exercise and weight maintenance.");
+    } else if (geneticData.LPL === "Moderate Risk (AG)") {
+        recommendations.diet.push("Omega-3 fatty acids and high-fiber foods; reduce saturated fats.");
+        recommendations.lifestyle.push("Focus on cardiovascular health through regular exercise.");
+    } else if (geneticData.LPL === "High Risk (GG)") {
+        recommendations.diet.push("Strict low-fat diet and avoid refined carbs.");
+        recommendations.lifestyle.push("Intensive exercise and regular lipid monitoring.");
+    }
+
+    // VEGFA
+    if (geneticData.VEGFA === "No Risk (CC)") {
+        recommendations.diet.push("Maintain a balanced diet with fruits and vegetables.");
+        recommendations.lifestyle.push("Engage in regular cardiovascular activities.");
+    } else if (geneticData.VEGFA === "Moderate Risk (CT)") {
+        recommendations.diet.push("Antioxidant-rich diet with omega-3 fatty acids.");
+        recommendations.lifestyle.push("Monitor vascular health with regular exercise.");
+    } else if (geneticData.VEGFA === "High Risk (TT)") {
+        recommendations.diet.push("Anti-inflammatory diet, limit sodium intake.");
+        recommendations.lifestyle.push("Avoid smoking and maintain a healthy lifestyle.");
+    }
+
+    // TNF-alpha
+    if (geneticData["TNF-alpha"] === "No Risk (CC)") {
+        recommendations.diet.push("Balanced diet with anti-inflammatory foods like turmeric and fatty fish.");
+        recommendations.lifestyle.push("Engage in regular physical activities.");
+    } else if (geneticData["TNF-alpha"] === "Moderate Risk (CT)") {
+        recommendations.diet.push("Increase intake of anti-inflammatory foods and avoid processed foods.");
+        recommendations.lifestyle.push("Practice stress management to reduce inflammation.");
+    } else if (geneticData["TNF-alpha"] === "High Risk (TT)") {
+        recommendations.diet.push("Strict anti-inflammatory diet rich in fruits, vegetables, and omega-3s.");
+        recommendations.lifestyle.push("Adopt intensive exercise and monitor inflammation markers.");
+    }
+
+    // PON1
+    if (geneticData.PON1 === "No Risk (QQ)") {
+        recommendations.diet.push("Balanced diet with antioxidant-rich foods like berries and nuts.");
+        recommendations.lifestyle.push("Engage in physical activities and avoid toxins.");
+    } else if (geneticData.PON1 === "Moderate Risk (QR)") {
+        recommendations.diet.push("Antioxidant-rich foods; consider moderate red wine if advised.");
+        recommendations.lifestyle.push("Avoid environmental toxins and stay active.");
+    } else if (geneticData.PON1 === "High Risk (RR)") {
+        recommendations.diet.push("Focus on a strict antioxidant diet; avoid alcohol and toxins.");
+        recommendations.lifestyle.push("Regular cardiovascular exercise and avoid toxins.");
+    }
+    return recommendations;
+    }
+
+    // Function to add microbiome recommendations
+    function addMicrobiomeRecommendations(microbiomeData, recommendations) {
+        
+    // Bacteroidia
+    if (microbiomeData.Bacteroidia > 30) {
+        recommendations.diet.push("Maintain a balanced fiber-rich diet with whole grains, fruits, and vegetables.");
+        recommendations.lifestyle.push("Regular moderate exercise and maintain a healthy gut environment.");
+    } else if (microbiomeData.Bacteroidia > 20 && microbiomeData.Bacteroidia <= 30) {
+        recommendations.diet.push("Increase intake of prebiotic foods like bananas, onions, and garlic.");
+        recommendations.lifestyle.push("Focus on hydration and light physical activities.");
+    } else {
+        recommendations.diet.push("High-fiber diet including legumes, oats, and leafy greens; consider probiotic supplements.");
+        recommendations.lifestyle.push("Regular exercise and stress management for gut health.");
+    }
+
+    // Clostridia
+    if (microbiomeData.Clostridia > 30) {
+        recommendations.diet.push("Reduce intake of processed foods and sugars; focus on anti-inflammatory foods.");
+        recommendations.lifestyle.push("Intensive exercise and regular monitoring of gut health.");
+    } else if (microbiomeData.Clostridia > 20 && microbiomeData.Clostridia <= 30) {
+        recommendations.diet.push("Include fermented foods like yogurt, kefir, and sauerkraut in your diet.");
+        recommendations.lifestyle.push("Engage in light physical activity like yoga and maintain hydration.");
+    } else {
+        recommendations.diet.push("Focus on diverse fiber sources and fermented foods.");
+        recommendations.lifestyle.push("Moderate exercise with mindfulness practices like meditation.");
+    }
+
+    // Actinobacteria
+    if (microbiomeData.Actinobacteria > 5) {
+        recommendations.diet.push("Consume probiotic foods and increase dietary fiber.");
+        recommendations.lifestyle.push("Maintain an active lifestyle and manage stress effectively.");
+    } else if (microbiomeData.Actinobacteria > 2 && microbiomeData.Actinobacteria <= 5) {
+        recommendations.diet.push("Include fermented foods and prebiotics like inulin and chicory root.");
+        recommendations.lifestyle.push("Engage in regular physical activity and ensure proper hydration.");
+    } else {
+        recommendations.diet.push("Focus on a high-fiber, low-fat diet; consider probiotic supplementation.");
+        recommendations.lifestyle.push("Monitor gut health and engage in stress-relieving activities.");
+    }
+
+    // Verrucomicrobiae
+    if (microbiomeData.Verrucomicrobiae > 5) {
+        recommendations.diet.push("Include polyphenol-rich foods like berries, green tea, and dark chocolate.");
+        recommendations.lifestyle.push("Maintain an active lifestyle and practice good sleep hygiene.");
+    } else if (microbiomeData.Verrucomicrobiae > 1 && microbiomeData.Verrucomicrobiae <= 5) {
+        recommendations.diet.push("Increase intake of whole grains and fermented foods.");
+        recommendations.lifestyle.push("Engage in light exercises and avoid high-stress environments.");
+    } else {
+        recommendations.diet.push("Strict focus on polyphenol- and prebiotic-rich foods.");
+        recommendations.lifestyle.push("Seek professional advice for gut microbiome support.");
+    }
+
+    // Gammaproteobacteria
+    if (microbiomeData.Gammaproteobacteria > 5) {
+        recommendations.diet.push("Avoid processed and sugary foods; focus on a plant-based diet.");
+        recommendations.lifestyle.push("Intensive exercise and gut health monitoring.");
+    } else if (microbiomeData.Gammaproteobacteria > 1 && microbiomeData.Gammaproteobacteria <= 5) {
+        recommendations.diet.push("Increase intake of anti-inflammatory foods and probiotics.");
+        recommendations.lifestyle.push("Engage in regular physical activity and ensure proper sleep.");
+    } else {
+        recommendations.diet.push("Maintain a balanced diet with limited intake of red meat.");
+        recommendations.lifestyle.push("Focus on regular exercise and avoid excessive stress.");
+    }
+
+    // Bacilli
+    if (microbiomeData.Bacilli > 10) {
+        recommendations.diet.push("Limit intake of high-sugar and processed foods.");
+        recommendations.lifestyle.push("Include intensive cardio exercises and maintain hydration.");
+    } else if (microbiomeData.Bacilli > 5 && microbiomeData.Bacilli <= 10) {
+        recommendations.diet.push("Focus on increasing dietary fiber and probiotics.");
+        recommendations.lifestyle.push("Engage in light aerobic exercises.");
+    } else {
+        recommendations.diet.push("Consume yogurt and other fermented dairy products.");
+        recommendations.lifestyle.push("Moderate physical activity and stress management techniques.");
+    }
+
+    // Erysipelotrichia
+    if (microbiomeData.Erysipelotrichia > 3) {
+        recommendations.diet.push("Reduce intake of high-fat foods; focus on anti-inflammatory foods.");
+        recommendations.lifestyle.push("Intensive physical activity and regular gut health checkups.");
+    } else if (microbiomeData.Erysipelotrichia > 1 && microbiomeData.Erysipelotrichia <= 3) {
+        recommendations.diet.push("Add prebiotic and fermented foods to your meals.");
+        recommendations.lifestyle.push("Focus on aerobic exercises and mindfulness.");
+    } else {
+        recommendations.diet.push("Include whole grains and vegetables; avoid high-fat diets.");
+        recommendations.lifestyle.push("Light exercise and regular sleep schedule.");
+    }
+
+    // Bifidobacterium
+    if (microbiomeData.Bifidobacterium > 1) {
+        recommendations.diet.push("Maintain a balanced diet with prebiotic and probiotic foods.");
+        recommendations.lifestyle.push("Regular exercise and stress management.");
+    } else if (microbiomeData.Bifidobacterium > 0.1 && microbiomeData.Bifidobacterium <= 1) {
+        recommendations.diet.push("Increase intake of fermented foods like yogurt and kimchi.");
+        recommendations.lifestyle.push("Moderate physical activity and ensure adequate hydration.");
+    } else {
+        recommendations.diet.push("Consider probiotic supplementation and fiber-rich foods.");
+        recommendations.lifestyle.push("Consult a professional for gut health support.");
+    }
+
+    // Lactobacillus
+    if (microbiomeData.Lactobacillus > 1) {
+        recommendations.diet.push("Balanced diet with regular consumption of fermented dairy products.");
+        recommendations.lifestyle.push("Engage in regular physical activities.");
+    } else if (microbiomeData.Lactobacillus > 0.1 && microbiomeData.Lactobacillus <= 1) {
+        recommendations.diet.push("Focus on probiotic and high-fiber foods.");
+        recommendations.lifestyle.push("Practice mindfulness and moderate exercise.");
+    } else {
+        recommendations.diet.push("Consider probiotics and increase dietary fiber intake.");
+        recommendations.lifestyle.push("Ensure proper hydration and consult a healthcare provider if needed.");
+    }
+
+    // Akkermansia_muciniphila
+    if (microbiomeData.Akkermansia_muciniphila > 1) {
+        recommendations.diet.push("Focus on a diet with high polyphenols and prebiotic fibers.");
+        recommendations.lifestyle.push("Engage in light-to-moderate exercises and manage stress levels.");
+    } else if (microbiomeData.Akkermansia_muciniphila > 0.1 && microbiomeData.Akkermansia_muciniphila <= 1) {
+        recommendations.diet.push("Increase consumption of whole grains, fruits, and vegetables.");
+        recommendations.lifestyle.push("Regular physical activity and mindfulness practices.");
+    } else {
+        recommendations.diet.push("Consider prebiotic and probiotic-rich foods or supplements.");
+        recommendations.lifestyle.push("Monitor gut health regularly and seek medical advice.");
+    }
+
+    // Prevotella
+    if (microbiomeData.Prevotella > 1) {
+        recommendations.diet.push("Increase intake of fiber-rich and plant-based foods.");
+        recommendations.lifestyle.push("Engage in regular physical activity to support gut diversity.");
+    } else if (microbiomeData.Prevotella > 0.1 && microbiomeData.Prevotella <= 1) {
+        recommendations.diet.push("Incorporate legumes, whole grains, and fermented foods.");
+        recommendations.lifestyle.push("Practice moderate exercise and stay hydrated.");
+    } else {
+        recommendations.diet.push("Focus on high-fiber foods and consider prebiotic supplementation.");
+        recommendations.lifestyle.push("Consult a healthcare professional for gut health improvement.");
+    }
+
+    // Faecalibacterium_prausnitzii
+    if (microbiomeData.Faecalibacterium_prausnitzii > 1) {
+        recommendations.diet.push("Maintain a balanced diet rich in fiber and whole grains.");
+        recommendations.lifestyle.push("Regular aerobic exercise and stress management practices.");
+    } else if (microbiomeData.Faecalibacterium_prausnitzii > 0.1 && microbiomeData.Faecalibacterium_prausnitzii <= 1) {
+        recommendations.diet.push("Increase consumption of foods like oats, barley, and leafy greens.");
+        recommendations.lifestyle.push("Engage in light physical activities and ensure proper sleep.");
+    } else {
+        recommendations.diet.push("Strict focus on prebiotic foods; consider gut health supplements.");
+        recommendations.lifestyle.push("Seek professional advice and monitor gut health regularly.");
+    }
+
+    // Clostridium_difficile
+    if (microbiomeData.Clostridium_difficile > 0.1) {
+        recommendations.diet.push("Focus on avoiding refined sugars and processed foods.");
+        recommendations.lifestyle.push("Maintain a healthy lifestyle with regular exercise and hydration.");
+    } else {
+        recommendations.diet.push("Maintain a clean diet with plenty of fiber and hydration.");
+        recommendations.lifestyle.push("Engage in physical activities that support gut health.");
+    }
+
+    // Escherichia_coli
+    if (microbiomeData.Escherichia_coli < 0.01) {
+        recommendations.diet.push("Balanced diet with sufficient fiber and hydration.");
+        recommendations.lifestyle.push("Regular moderate exercise and healthy hygiene practices.");
+    } else if (microbiomeData.Escherichia_coli >= 0.01 && microbiomeData.Escherichia_coli <= 0.1) {
+        recommendations.diet.push("Incorporate probiotic foods like yogurt and miso into your diet.");
+        recommendations.lifestyle.push("Focus on maintaining a healthy weight and gut environment.");
+    } else {
+        recommendations.diet.push("Limit intake of sugar and processed foods; adopt an anti-inflammatory diet.");
+        recommendations.lifestyle.push("Seek medical advice to manage gut balance and engage in stress management.");
+    }
+
+    // Methanobrevibacter_smithii
+    if (microbiomeData.Methanobrevibacter_smithii > 1) {
+        recommendations.diet.push("Maintain a diet with balanced fiber and protein sources.");
+        recommendations.lifestyle.push("Regular physical activity and stress management to support gut health.");
+    } else if (microbiomeData.Methanobrevibacter_smithii >= 0.1 && microbiomeData.Methanobrevibacter_smithii <= 1) {
+        recommendations.diet.push("Increase intake of foods like garlic, onions, and asparagus (prebiotics).");
+        recommendations.lifestyle.push("Engage in light exercises like walking or yoga.");
+    } else {
+        recommendations.diet.push("Focus on high-fiber foods and fermented products; consider supplements.");
+        recommendations.lifestyle.push("Monitor gut health and seek professional guidance if needed.");
+    }
+
+    // Bacteriophages
+    if (microbiomeData.Bacteriophages > 1) {
+        recommendations.diet.push("Balanced diet with adequate hydration and nutrient diversity.");
+        recommendations.lifestyle.push("Engage in regular physical activity and avoid stress.");
+    } else if (microbiomeData.Bacteriophages >= 0.1 && microbiomeData.Bacteriophages <= 1) {
+        recommendations.diet.push("Include whole grains and probiotics to maintain gut health.");
+        recommendations.lifestyle.push("Practice mindfulness and ensure adequate sleep.");
+    } else {
+        recommendations.diet.push("Focus on prebiotic and probiotic-rich foods; avoid processed foods.");
+        recommendations.lifestyle.push("Seek advice for supporting a healthy gut microbiome.");
+    }
+
+    // Candida
+    if (microbiomeData.Candida < 0.01) {
+        recommendations.diet.push("Maintain a balanced diet with limited refined carbs and sugars.");
+        recommendations.lifestyle.push("Regular physical activity and proper oral hygiene.");
+    } else if (microbiomeData.Candida >= 0.01 && microbiomeData.Candida <= 0.1) {
+        recommendations.diet.push("Increase intake of anti-fungal foods like coconut oil and garlic.");
+        recommendations.lifestyle.push("Monitor stress levels and ensure adequate sleep.");
+    } else {
+        recommendations.diet.push("Adopt a strict anti-fungal diet under medical supervision; avoid sugars.");
+        recommendations.lifestyle.push("Consult a healthcare provider for targeted treatments.");
+    }
+
+    // Saccharomyces
+    if (microbiomeData.Saccharomyces < 0.01) {
+        recommendations.diet.push("Balanced diet with adequate hydration; include fermented foods.");
+        recommendations.lifestyle.push("Engage in light exercise and maintain good hygiene.");
+    } else if (microbiomeData.Saccharomyces >= 0.01 && microbiomeData.Saccharomyces <= 0.1) {
+        recommendations.diet.push("Focus on fermented foods like kombucha and kimchi.");
+        recommendations.lifestyle.push("Regular physical activity and adequate sleep for gut health.");
+    } else {
+        recommendations.diet.push("Avoid high-sugar and yeast-heavy foods; focus on balanced meals.");
+        recommendations.lifestyle.push("Seek professional advice to balance gut flora.");
+    }
+    return recommendations;
+    }
+
+    
+    // Function to add biochemical recommendations
+    function addBiochemicalRecommendations(biochemicalData, recommendations) {
+        // Fasting Blood Glucose Recommendations
+        if (biochemicalData.fastingBloodGlucose === "70-99 mg/dL") {
+            recommendations.diet.push("Maintain a balanced diet with low glycemic index foods and complex carbs.");
+            recommendations.lifestyle.push("Regular physical activity and maintain a healthy weight.");
+        } else if (biochemicalData.fastingBloodGlucose === "100-125 mg/dL") {
+            recommendations.diet.push("Focus on reducing refined sugars; incorporate more fiber and whole grains.");
+            recommendations.lifestyle.push("Engage in regular aerobic exercise and monitor blood glucose levels.");
+        } else if (biochemicalData.fastingBloodGlucose === "126+ mg/dL") {
+            recommendations.diet.push("Adopt a low-carb, high-fiber diet; avoid sugary and processed foods.");
+            recommendations.lifestyle.push("Consult a healthcare provider; follow a structured exercise plan.");
+        }
+    
+        // HbA1c Recommendations
+        if (biochemicalData.HbA1c === "4-5.6%") {
+            recommendations.diet.push("Balanced diet with controlled portions of carbohydrates.");
+            recommendations.lifestyle.push("Maintain regular exercise and monitor glucose levels.");
+        } else if (biochemicalData.HbA1c === "5.7-6.4%") {
+            recommendations.diet.push("Emphasize low-GI foods, increase fiber, and reduce sugar intake.");
+            recommendations.lifestyle.push("Increase physical activity and consider weight management strategies.");
+        } else if (biochemicalData.HbA1c === "6.5%+") {
+            recommendations.diet.push("Strict low-carb, high-fiber diet; avoid trans fats and sugars.");
+            recommendations.lifestyle.push("Follow medical advice for glucose control and engage in supervised exercise.");
+        }
+    
+        // Total Cholesterol Recommendations
+        if (biochemicalData.totalCholesterol === "0-200 mg/dL") {
+            recommendations.diet.push("Include healthy fats like olive oil and avocados; maintain balanced nutrition.");
+            recommendations.lifestyle.push("Engage in regular aerobic exercise and manage stress.");
+        } else if (biochemicalData.totalCholesterol === "201-239 mg/dL") {
+            recommendations.diet.push("Reduce intake of saturated fats; increase fiber and omega-3 fatty acids.");
+            recommendations.lifestyle.push("Focus on regular cardio exercises and weight control.");
+        } else if (biochemicalData.totalCholesterol === "240+ mg/dL") {
+            recommendations.diet.push("Adopt a heart-healthy diet, avoid trans fats, and increase soluble fiber.");
+            recommendations.lifestyle.push("Seek medical advice and engage in intensive physical activity.");
+        }
+    
+        // LDL Cholesterol Recommendations
+        if (biochemicalData.ldlCholesterol === "0-100 mg/dL") {
+            recommendations.diet.push("Maintain balanced nutrition with heart-healthy fats.");
+            recommendations.lifestyle.push("Engage in regular physical activity.");
+        } else if (biochemicalData.ldlCholesterol === "101-159 mg/dL") {
+            recommendations.diet.push("Reduce saturated fats and increase intake of fruits, vegetables, and whole grains.");
+            recommendations.lifestyle.push("Regular exercise focusing on cardiovascular health.");
+        } else if (biochemicalData.ldlCholesterol === "160+ mg/dL") {
+            recommendations.diet.push("Strictly avoid trans fats; focus on omega-3 and fiber-rich foods.");
+            recommendations.lifestyle.push("Intensive exercise and regular lipid monitoring.");
+        }
+    
+        // HDL Cholesterol Recommendations
+        if (biochemicalData.hdlCholesterol === "60 mg/dL") {
+            recommendations.diet.push("Maintain balanced nutrition with healthy fats.");
+            recommendations.lifestyle.push("Engage in regular physical activity.");
+        } else if (biochemicalData.hdlCholesterol === "40-59 mg/dL") {
+            recommendations.diet.push("Maintain a balanced diet with adequate healthy fats.");
+            recommendations.lifestyle.push("Regular physical activity and stress management.");
+        } else if (biochemicalData.hdlCholesterol === "0-39 mg/dL") {
+            recommendations.diet.push("Increase healthy fats from nuts, seeds, and fatty fish.");
+            recommendations.lifestyle.push("Engage in vigorous exercise to boost HDL levels.");
+        }
+    
+        // Triglycerides Recommendations
+        if (biochemicalData.triglycerides === "0-149 mg/dL") {
+            recommendations.diet.push("Maintain a balanced diet; avoid excessive sugar and refined carbs.");
+            recommendations.lifestyle.push("Regular aerobic exercise and weight management.");
+        } else if (biochemicalData.triglycerides === "150-199 mg/dL") {
+            recommendations.diet.push("Limit simple sugars; focus on omega-3-rich and fiber-rich foods.");
+            recommendations.lifestyle.push("Engage in regular cardio and reduce alcohol consumption.");
+        } else if (biochemicalData.triglycerides === "200+ mg/dL") {
+            recommendations.diet.push("Adopt a low-carb, high-fiber diet; avoid fried and processed foods.");
+            recommendations.lifestyle.push("Consult a healthcare provider and follow a structured lifestyle plan.");
+        }
+    
+        // Serum Creatinine Recommendations
+        if (biochemicalData.serumCreatinine === "0.5-1.2 mg/dL") {
+            recommendations.diet.push("Maintain a balanced diet with controlled protein intake.");
+            recommendations.lifestyle.push("Stay hydrated and engage in moderate physical activity.");
+        } else if (biochemicalData.serumCreatinine === "1.3-1.9 mg/dL") {
+            recommendations.diet.push("Limit protein intake; focus on plant-based proteins and hydration.");
+            recommendations.lifestyle.push("Monitor kidney function and avoid overexertion.");
+        } else if (biochemicalData.serumCreatinine === "2.0+ mg/dL") {
+            recommendations.diet.push("Adopt a renal-friendly diet under professional supervision.");
+            recommendations.lifestyle.push("Seek medical advice and avoid strenuous activities.");
+        }
+    
+        // eGFR Recommendations
+        if (biochemicalData.eGFR === ">90 mL/min") {
+            recommendations.diet.push("Maintain a balanced diet with adequate hydration.");
+            recommendations.lifestyle.push("Engage in regular exercise and monitor kidney health.");
+        } else if (biochemicalData.eGFR === "60-89 mL/min") {
+            recommendations.diet.push("Limit protein and sodium intake; maintain adequate hydration.");
+            recommendations.lifestyle.push("Monitor kidney function and avoid dehydration.");
+        } else if (biochemicalData.eGFR === "0-59 mL/min") {
+            recommendations.diet.push("Follow a kidney-friendly diet with low sodium and low protein.");
+            recommendations.lifestyle.push("Consult with a healthcare provider for renal care.");
+        }
+    
+        // ALT (Alanine Aminotransferase) Recommendations
+        if (biochemicalData.ALT === "7-56 U/L") {
+            recommendations.diet.push("Maintain a balanced diet rich in antioxidants and liver-supportive foods like leafy greens.");
+            recommendations.lifestyle.push("Avoid excessive alcohol consumption and monitor liver health.");
+        } else if (biochemicalData.ALT === "57-100 U/L") {
+            recommendations.diet.push("Reduce alcohol intake and focus on liver-friendly foods such as turmeric and beets.");
+            recommendations.lifestyle.push("Manage stress and consider regular liver function tests.");
+        } else if (biochemicalData.ALT === "101+ U/L") {
+            recommendations.diet.push("Adopt a liver detox plan with a focus on hydration and anti-inflammatory foods.");
+            recommendations.lifestyle.push("Seek medical advice immediately for potential liver issues.");
+        }
+    
+        // AST (Aspartate Aminotransferase) Recommendations
+        if (biochemicalData.AST === "10-40 U/L") {
+            recommendations.diet.push("Maintain a diet rich in antioxidants, particularly from fruits and vegetables.");
+            recommendations.lifestyle.push("Engage in moderate exercise and avoid excessive alcohol or drug use.");
+        } else if (biochemicalData.AST === "41-80 U/L") {
+            recommendations.diet.push("Limit processed foods and alcohol, include more liver-supporting foods like garlic.");
+            recommendations.lifestyle.push("Consider reducing alcohol consumption and follow up with a healthcare provider.");
+        } else if (biochemicalData.AST === "81+ U/L") {
+            recommendations.diet.push("Adopt a liver-friendly diet, rich in cruciferous vegetables and low in fats.");
+            recommendations.lifestyle.push("Consult a healthcare provider for further diagnostic evaluation.");
+        }
+    
+        // TSH (Thyroid Stimulating Hormone) Recommendations
+        if (biochemicalData.TSH === "0.4-4.0 mIU/L") {
+            recommendations.diet.push("Maintain a balanced diet rich in iodine, selenium, and zinc to support thyroid function.");
+            recommendations.lifestyle.push("Engage in regular physical activity to promote overall thyroid health.");
+        } else if (biochemicalData.TSH === "4.1-10.0 mIU/L") {
+            recommendations.diet.push("Incorporate iodine-rich foods such as seaweed and consider selenium-rich foods like Brazil nuts.");
+            recommendations.lifestyle.push("Consult with an endocrinologist for thyroid function management.");
+        } else if (biochemicalData.TSH === "10.1+ mIU/L") {
+            recommendations.diet.push("Consider an anti-inflammatory diet, rich in healthy fats and fiber, and low in processed foods.");
+            recommendations.lifestyle.push("Seek immediate medical advice for thyroid dysfunction management.");
+        }
+    
+        // Free T4 (Thyroxine) Recommendations
+        if (biochemicalData.freeT4 === "0.8-1.7 ng/dL") {
+            recommendations.diet.push("Maintain a balanced diet to support thyroid health with iodine and selenium.");
+            recommendations.lifestyle.push("Ensure consistent exercise routines and sleep hygiene.");
+        } else if (biochemicalData.freeT4 === "0.6-0.79 ng/dL") {
+            recommendations.diet.push("Focus on iodine-rich foods like fish, dairy, and eggs.");
+            recommendations.lifestyle.push("Consult a healthcare provider for thyroid treatment options.");
+        } else if (biochemicalData.freeT4 === "0-0.59 ng/dL") {
+            recommendations.diet.push("Increase iodine intake and support thyroid health with B vitamins.");
+            recommendations.lifestyle.push("Seek medical attention for possible thyroid hormone replacement therapy.");
+        }
+    
+        // BNP (Brain Natriuretic Peptide) Recommendations
+        if (biochemicalData.BNP === "<100 pg/mL") {
+            recommendations.diet.push("Maintain a balanced diet with low sodium and heart-healthy fats.");
+            recommendations.lifestyle.push("Regular cardiovascular exercise and monitor heart health.");
+        } else if (biochemicalData.BNP === "101-300 pg/mL") {
+            recommendations.diet.push("Limit sodium intake and focus on a heart-healthy diet with whole grains and vegetables.");
+            recommendations.lifestyle.push("Engage in moderate physical activity and manage stress levels.");
+        } else if (biochemicalData.BNP === ">301 pg/mL") {
+            recommendations.diet.push("Reduce sodium and processed food intake; adopt a heart-healthy diet.");
+            recommendations.lifestyle.push("Consult a healthcare provider immediately for potential heart failure symptoms.");
+        }
+    
+        // CRP (C-Reactive Protein) Recommendations
+        if (biochemicalData.CRP === "<1 mg/L") {
+            recommendations.diet.push("Maintain an anti-inflammatory diet rich in fruits, vegetables, and omega-3 fatty acids.");
+            recommendations.lifestyle.push("Keep a healthy weight and engage in regular physical activity.");
+        } else if (biochemicalData.CRP === "1.1-3 mg/L") {
+            recommendations.diet.push("Increase intake of anti-inflammatory foods such as turmeric, ginger, and fatty fish.");
+            recommendations.lifestyle.push("Focus on regular cardiovascular exercise and stress management.");
+        } else if (biochemicalData.CRP === ">3.1 mg/L") {
+            recommendations.diet.push("Adopt an anti-inflammatory diet; focus on whole grains, leafy greens, and omega-3-rich foods.");
+            recommendations.lifestyle.push("Consult a healthcare provider for further inflammatory condition management.");
+        }
+    
+        // Vitamin D Recommendations
+        if (biochemicalData.vitaminD === "<30 ng/mL") {
+            recommendations.diet.push("Increase vitamin D intake through fortified foods and fatty fish.");
+            recommendations.lifestyle.push("Consider vitamin D supplementation and get more sunlight exposure.");
+        } else if (biochemicalData.vitaminD === "20-29 ng/mL") {
+            recommendations.diet.push("Include vitamin D-rich foods such as fortified dairy and mushrooms.");
+            recommendations.lifestyle.push("Engage in regular outdoor activities to increase natural vitamin D production.");
+        } else if (biochemicalData.vitaminD === ">19 ng/mL") {
+            recommendations.diet.push("Maintain balanced vitamin D intake and ensure adequate calcium intake.");
+            recommendations.lifestyle.push("Regular outdoor activity and exercise for overall bone health.");
+        }
+    
+        // Serum Ferritin Recommendations
+        if (biochemicalData.serumFerritin === "30-300 ng/mL") {
+            recommendations.diet.push("Maintain a balanced diet rich in iron-containing foods such as spinach and red meat.");
+            recommendations.lifestyle.push("Engage in regular physical activity to enhance iron absorption.");
+        } else if (biochemicalData.serumFerritin === "10-29 ng/mL") {
+            recommendations.diet.push("Increase iron-rich foods like beans, tofu, and fortified cereals.");
+            recommendations.lifestyle.push("Consider iron supplements and consult a healthcare provider.");
+        } else if (biochemicalData.serumFerritin === "0-9 ng/mL") {
+            recommendations.diet.push("Increase iron-rich foods and consider iron supplementation after consulting a healthcare provider.");
+            recommendations.lifestyle.push("Seek medical advice for possible iron deficiency anemia treatment.");
+        }
+    
+        // Omega-3 Index Recommendations
+        if (biochemicalData.omega3Index === "8%") {
+            recommendations.diet.push("Maintain omega-3 intake with foods like fatty fish and flaxseeds.");
+            recommendations.lifestyle.push("Keep up with healthy eating habits to maintain heart health.");
+        } else if (biochemicalData.omega3Index === "4-7.9%") {
+            recommendations.diet.push("Increase omega-3 intake from foods such as salmon, walnuts, and chia seeds.");
+            recommendations.lifestyle.push("Consult a healthcare provider for omega-3 supplementation.");
+        } else if (biochemicalData.omega3Index === "0-3.9%") {
+            recommendations.diet.push("Adopt a diet rich in omega-3 fatty acids from foods like fish oil and flaxseeds.");
+            recommendations.lifestyle.push("Consider omega-3 supplementation and consult with a healthcare provider.");
+        }
+    
+        // IGF-1 Recommendations
+        if (biochemicalData.IGF1 === "100-300 ng/mL") {
+            recommendations.diet.push("Maintain a balanced diet with protein and healthy fats.");
+            recommendations.lifestyle.push("Engage in regular physical activity to support IGF-1 production.");
+        } else if (biochemicalData.IGF1 === "70-99 ng/mL") {
+            recommendations.diet.push("Ensure adequate protein intake and consider eating smaller, balanced meals.");
+            recommendations.lifestyle.push("Engage in resistance training to support healthy IGF-1 levels.");
+        } else if (biochemicalData.IGF1 === "0-69 ng/mL") {
+            recommendations.diet.push("Ensure adequate protein intake and consider consulting a healthcare provider for IGF-1 supplementation.");
+            recommendations.lifestyle.push("Consult a healthcare provider for growth hormone-related concerns.");
+        }
+    
+        // Vitamin B12 Recommendations
+        if (biochemicalData.vitaminB12 === "200-900 pg/mL") {
+            recommendations.diet.push("Maintain a balanced diet with B12-rich foods like eggs, dairy, and fortified cereals.");
+            recommendations.lifestyle.push("Consider regular checkups to monitor vitamin B12 levels.");
+        } else if (biochemicalData.vitaminB12 === "150-199 pg/mL") {
+            recommendations.diet.push("Increase intake of B12-rich foods or consider B12 supplementation.");
+            recommendations.lifestyle.push("Consult a healthcare provider for B12 deficiency management.");
+        } else if (biochemicalData.vitaminB12 === "0-149 pg/mL") {
+            recommendations.diet.push("Start B12 supplementation and increase B12-rich foods such as animal products or fortified foods.");
+            recommendations.lifestyle.push("Seek medical advice for possible B12 deficiency treatment.");
+        }
+    
+        // Vitamin B9 Recommendations
+        if (biochemicalData.vitaminB9 === "3-17 ng/mL") {
+            recommendations.diet.push("Maintain a balanced diet rich in folate-containing foods like leafy greens and beans.");
+            recommendations.lifestyle.push("Consult a healthcare provider if you have concerns about folate status.");
+        } else if (biochemicalData.vitaminB9 === "2-2.9 ng/mL") {
+            recommendations.diet.push("Increase intake of folate-rich foods such as leafy vegetables, citrus fruits, and legumes.");
+            recommendations.lifestyle.push("Consider folic acid supplementation under healthcare provider guidance.");
+        } else if (biochemicalData.vitaminB9 === "0-1.9 ng/mL") {
+            recommendations.diet.push("Increase folate-rich foods significantly or consider folic acid supplements.");
+            recommendations.lifestyle.push("Seek medical advice for possible folate deficiency treatment.");
+        }
+    
+        // Calcium Recommendations
+        if (biochemicalData.calcium === "8.5-10.5 mg/dL") {
+            recommendations.diet.push("Maintain adequate calcium intake through dairy, fortified plant-based milk, and leafy greens.");
+            recommendations.lifestyle.push("Engage in weight-bearing exercises to support bone health.");
+        } else if (biochemicalData.calcium === "7.5-8.4 mg/dL") {
+            recommendations.diet.push("Increase calcium intake from food or supplements.");
+            recommendations.lifestyle.push("Consult a healthcare provider for potential bone density testing.");
+        } else if (biochemicalData.calcium === "0-7.4 mg/dL") {
+            recommendations.diet.push("Increase calcium-rich foods or consider calcium supplements after consulting a healthcare provider.");
+            recommendations.lifestyle.push("Seek medical advice immediately for possible calcium deficiency management.");
+        }
+    
+        // Zinc Recommendations
+        if (biochemicalData.zinc === "70-120 mcg/dL") {
+            recommendations.diet.push("Maintain a balanced diet with zinc-rich foods like oysters, nuts, and legumes.");
+            recommendations.lifestyle.push("Consider regular zinc level checks to ensure adequate intake.");
+        } else if (biochemicalData.zinc === "50-69 mcg/dL") {
+            recommendations.diet.push("Increase zinc-rich foods or consider zinc supplementation.");
+            recommendations.lifestyle.push("Consult a healthcare provider for zinc deficiency management.");
+        } else if (biochemicalData.zinc === "0-49 mcg/dL") {
+            recommendations.diet.push("Increase zinc intake through diet or supplementation.");
+            recommendations.lifestyle.push("Seek medical advice for zinc deficiency treatment.");
+        }
+    
+        // Magnesium Recommendations
+        if (biochemicalData.magnesium === "1.7-2.2 mg/dL") {
+            recommendations.diet.push("Maintain magnesium levels through nuts, seeds, and whole grains.");
+            recommendations.lifestyle.push("Engage in physical activity to help balance magnesium levels.");
+        } else if (biochemicalData.magnesium === "1.4-1.6 mg/dL") {
+            recommendations.diet.push("Increase magnesium intake through food or consider supplements.");
+            recommendations.lifestyle.push("Consult a healthcare provider for further magnesium evaluation.");
+        } else if (biochemicalData.magnesium === ">1.3 mg/dL") {
+            recommendations.diet.push("Ensure adequate magnesium intake to support muscle and nerve function.");
+            recommendations.lifestyle.push("Seek medical advice for potential magnesium imbalance treatment.");
+        }
+    
+        // Troponins Recommendations
+        if (biochemicalData.troponins === "0-0.01 ng/mL") {
+            recommendations.diet.push("Maintain a heart-healthy diet rich in omega-3s and antioxidants.");
+            recommendations.lifestyle.push("Regular cardiovascular checkups and exercise.");
+        } else if (biochemicalData.troponins === "0.01-0.1 ng/mL") {
+            recommendations.diet.push("Reduce saturated fats and prioritize plant-based foods for heart health.");
+            recommendations.lifestyle.push("Monitor heart health and seek medical consultation.");
+        } else if (biochemicalData.troponins === ">0.1 ng/mL") {
+            recommendations.diet.push("Follow a heart-healthy diet with a focus on reducing inflammation.");
+            recommendations.lifestyle.push("Seek immediate medical attention for possible heart-related conditions.");
+        }
+        return recommendations;
+        }
+
+    // Get the recommendations based on the available data
+    const recommendations = getRecommendations(geneticData, microbiomeData, biochemicalData);
+
+    // Render the recommendations in the respective sections
+    renderRecommendations("diet-recommendations", recommendations.diet);
+    renderRecommendations("lifestyle-recommendations", recommendations.lifestyle);
+}
+
+function renderRecommendations(elementId, recommendations) {
+    const listElement = document.getElementById(elementId);
+    listElement.innerHTML = ""; // Clear previous content
+
+    if (recommendations.length === 0) {
+        const emptyMessage = document.createElement("li");
+        emptyMessage.textContent = "No recommendations available.";
+        listElement.appendChild(emptyMessage);
+        return;
+    }
+
+    recommendations.forEach((recommendation) => {
+        const listItem = document.createElement("li");
+        listItem.textContent = recommendation;
+        listElement.appendChild(listItem);
+    });
+}
+
+// Load results when the page is fully loaded
+document.addEventListener("DOMContentLoaded", loadResults);
+
+    </script>
+
+</body>
+</html>

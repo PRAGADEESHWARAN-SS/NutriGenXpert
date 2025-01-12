@@ -1,0 +1,208 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Header styles (unchanged) */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f4f4f4;
+}
+
+header .logo h1 {
+    font-size: 1.8rem;
+    color: #e25b45;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+}
+
+header nav ul li {
+    margin: 0 1rem;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1rem;
+}
+
+/* Microbiome Form section */
+.form-section {
+    padding: 2rem;
+    background-color: #fff;
+    text-align: center;
+}
+
+.form-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.form-container h3 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+/* Styling for the form elements */
+.microbiome-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.microbiome-form .column {
+    width: 48%; /* Each column takes half the width with some gap */
+}
+
+.microbiome-form .form-row {
+    margin-bottom: 1rem;
+}
+
+.form-row label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    text-align: left;
+    color: #555;
+}
+
+.form-row select {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 1rem;
+}
+
+select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    width: 100%;
+}
+
+/* Add spacing for the h2 elements in the form */
+section.test-results h2 {
+    margin-top: 2rem; /* Adjust the top spacing as needed */
+    margin-bottom: 1.5rem; /* Adjust the bottom spacing as needed */
+    font-size: 1.8rem; /* Optional: adjust font size */
+    color: #333; /* Optional: color adjustment */
+    text-align: center; /* Optional: centering the text */
+}
+
+
+/* Additional Microbes section */
+.additional-microbes-section {
+    margin-top: 2rem;
+    text-align: left;
+}
+
+.additional-microbes-section h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.additional-microbes-section .form-row {
+    width: calc(50% - 1rem); /* Split additional microbes into two columns */
+    margin-bottom: 1rem;
+}
+/* Container for the button */
+.continue-button {
+    display: flex;
+    justify-content: center; /* Horizontally center the button */
+    align-items: center; /* Vertically center the button */
+    margin-top: 2rem; /* Add top margin for spacing */
+    height: 100px; /* Add a height to ensure the button is centered vertically */
+}
+
+/* Button Styling */
+button.submit-btn {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+}
+
+button.submit-btn:hover {
+    background-color: #555;
+}
+
+/* Footer styles (unchanged) */
+/* Footer Styles */
+.footer {
+    background-color: #f0f0f0;
+    padding: 2rem 0;
+}
+
+.footer .container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-column {
+    width: 25%;
+}
+
+.footer-column h4 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li a {
+    text-decoration: none;
+    color: #333;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.footer img {
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.footer-bottom {
+    background-color: #f0f0f0;
+    padding: 1rem;
+    text-align: center;
+}
+
+.footer-bottom a {
+    text-decoration: none;
+    color: blue;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
