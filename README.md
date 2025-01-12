@@ -18,7 +18,7 @@ Ensure global applicability through affordability and regional adaptability.
 Maintain high standards of data privacy and security.
 
 Technology Stack
-Backend: Python, R, Machine Learning frameworks (TensorFlow, PyTorch)
+Backend: Js, algorithms 
 Frontend: React.js, HTML/CSS
 Database: PostgreSQL, MongoDB
 APIs: Integration with genetic testing and wearable devices
